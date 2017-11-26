@@ -40,13 +40,22 @@ if ( ! class_exists( 'TxToIT\IFP\Plugins_Page' ) ) {
 				?>
                 <div class="ifp-icon-wrapper">
 					<?php if ( ! empty( $image_url ) ) { ?>
-                        <div class="ifp-icon <?php echo $grayscale_class; ?>" style="background-image:url(<?php echo $image_url; ?>)"></div>
+                        <div class="ifp-icon <?php echo $grayscale_class; ?>"
+                             style="background-image:url(<?php echo $image_url; ?>)"></div>
 					<?php } else { ?>
                         <div class="ifp-icon no-img <?php echo $grayscale_class; ?>"></div>
-                        <div class="ifp-icon ifp-guess <?php echo $grayscale_class; ?>" data-guess-img="<?php echo $image_url_guess_1; ?>" style="background-image:url(<?php echo $image_url_guess_1; ?>)"></div>
-                        <div class="ifp-icon ifp-guess <?php echo $grayscale_class; ?>" data-guess-img="<?php echo $image_url_guess_1; ?>" style="background-image:url(<?php echo $image_url_guess_2; ?>)"></div>
-                        <div class="ifp-icon ifp-guess <?php echo $grayscale_class; ?>" data-guess-img="<?php echo $image_url_guess_1; ?>" style="background-image:url(<?php echo $image_url_guess_3; ?>)"></div>
-                        <div class="ifp-icon ifp-guess <?php echo $grayscale_class; ?>" data-guess-img="<?php echo $image_url_guess_1; ?>" style="background-image:url(<?php echo $image_url_guess_4; ?>)"></div>
+                        <div class="ifp-icon ifp-guess <?php echo $grayscale_class; ?>"
+                             data-guess-img="<?php echo $image_url_guess_1; ?>"
+                             style="background-image:url(<?php echo $image_url_guess_1; ?>)"></div>
+                        <div class="ifp-icon ifp-guess <?php echo $grayscale_class; ?>"
+                             data-guess-img="<?php echo $image_url_guess_1; ?>"
+                             style="background-image:url(<?php echo $image_url_guess_2; ?>)"></div>
+                        <div class="ifp-icon ifp-guess <?php echo $grayscale_class; ?>"
+                             data-guess-img="<?php echo $image_url_guess_1; ?>"
+                             style="background-image:url(<?php echo $image_url_guess_3; ?>)"></div>
+                        <div class="ifp-icon ifp-guess <?php echo $grayscale_class; ?>"
+                             data-guess-img="<?php echo $image_url_guess_1; ?>"
+                             style="background-image:url(<?php echo $image_url_guess_4; ?>)"></div>
 					<?php } ?>
                 </div>
 				<?php
@@ -93,6 +102,7 @@ if ( ! class_exists( 'TxToIT\IFP\Plugins_Page' ) ) {
 			$height            = filter_var( Admin_Settings::get_option_icon_height(), FILTER_SANITIZE_NUMBER_INT );
 			$empty_img         = Admin_Settings::get_option_empty_icon_url();
 			$empty_img_opacity = Admin_Settings::get_option_empty_icon_opacity();
+			$bkg_size          = Admin_Settings::get_option_icon_background_size();
 			?>
             <style>
                 #ifp_icon {
@@ -113,7 +123,7 @@ if ( ! class_exists( 'TxToIT\IFP\Plugins_Page' ) ) {
 
                 .ifp-icon.no-img {
                     background-image: url('<?php echo esc_url($empty_img); ?>');
-                    background-size: contain;
+                    background-size: <?php echo esc_html($bkg_size) ?>;
                     opacity: <?php echo $empty_img_opacity; ?>;
                 }
 
@@ -129,8 +139,9 @@ if ( ! class_exists( 'TxToIT\IFP\Plugins_Page' ) ) {
                     position: absolute;
                     width: 100%;
                     height: 100%;
-                    background-size: contain;
+                    background-size: <?php echo esc_html($bkg_size) ?>;
                     background-position: center center;
+                    background-repeat: no-repeat;
                 }
 
                 .ifp-icon.grayscale {
@@ -143,8 +154,6 @@ if ( ! class_exists( 'TxToIT\IFP\Plugins_Page' ) ) {
                     -webkit-filter: grayscale(0);
                     filter: grayscale(0);
                 }
-
-
             </style>
 			<?php
 		}

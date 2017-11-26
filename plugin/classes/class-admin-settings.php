@@ -32,6 +32,7 @@ if ( ! class_exists( 'TxToIT\IFP\Admin_Settings' ) ) {
 		public static $option_empty_icon_opacity = 'ifp_empty_icon_opacity';
 		public static $option_column_position = 'ifp_col_position';
 		public static $option_grayscale_icon = 'ifp_grayscale_icon';
+		public static $option_background_size = 'ifp_background_size';
 
 
 		/**
@@ -95,6 +96,10 @@ if ( ! class_exists( 'TxToIT\IFP\Admin_Settings' ) ) {
 			return self::get_option( self::$option_grayscale_icon, self::$section_general, false );
 		}
 
+		public static function get_option_icon_background_size() {
+			return self::get_option( self::$option_background_size, self::$section_general, 'cover' );
+		}
+
 		/**
 		 * Get settings sections
 		 *
@@ -123,7 +128,7 @@ if ( ! class_exists( 'TxToIT\IFP\Admin_Settings' ) ) {
 			$settings_fields = array(
 
 				// General settings
-				self::$section_general     => array(
+				self::$section_general => array(
 
 					array(
 						'name'  => 'ifp_general_settings',
@@ -147,12 +152,12 @@ if ( ! class_exists( 'TxToIT\IFP\Admin_Settings' ) ) {
 						'default' => 1
 					),
 
+					// ICON DIMENSIONS
 					array(
 						'name'  => 'ifp_size',
 						'label' => __( 'Icon Dimensions', 'txtoit-icons-for-plugins' ),
 						'type'  => 'title',
 					),
-
 					array(
 						'name'    => self::$option_icon_width,
 						'label'   => __( 'Width', 'txtoit-icons-for-plugins' ),
@@ -166,6 +171,16 @@ if ( ! class_exists( 'TxToIT\IFP\Admin_Settings' ) ) {
 						//'desc'    => __( 'Adds tabs in admin login form in order to display Account Kit buttons', 'txtoit-icons-for-plugins' ),
 						'type'    => 'number',
 						'default' => 38
+					),
+					array(
+						'name'    => self::$option_background_size,
+						'label'   => __( 'Background size', 'txtoit-icons-for-plugins' ),
+						'type'    => 'select',
+						'options' => array(
+							'cover'   => __( 'Cover', 'txtoit-icons-for-plugins' ),
+							'contain' => __( 'Contain', 'txtoit-icons-for-plugins' )
+						),
+						'default' => 'cover'
 					),
 
 					array(
@@ -192,35 +207,6 @@ if ( ! class_exists( 'TxToIT\IFP\Admin_Settings' ) ) {
 						'step'    => 0.05,
 						'default' => 0.15
 					),
-
-
-					// Dashboard tabs
-					/*array(
-						'name'  => 'general_settings',
-						'label' => __( 'General settings', 'txtoit-icons-for-plugins' ),
-						'type'  => 'title',
-					),*/
-					/*array(
-						'name'    => self::$option_admin_login_form_tabs,
-						'label'   => __( 'Enable', 'txtoit-icons-for-plugins' ),
-						'desc'    => __( 'Adds tabs in admin login form in order to display Account Kit buttons', 'txtoit-icons-for-plugins' ),
-						'type'    => 'checkbox',
-						'default' => 'on'
-					),
-					array(
-						'name'    => self::$option_admin_login_form_tabs_label_default,
-						'label'   => __( 'Default login label', 'txtoit-icons-for-plugins' ),
-						'desc'    => __( 'Label for default login tab', 'txtoit-icons-for-plugins' ),
-						'type'    => 'text',
-						'default' => __( 'Default', 'txtoit-icons-for-plugins' )
-					),
-					array(
-						'name'    => self::$option_admin_login_form_tabs_label_kit,
-						'label'   => __( 'Account kit label', 'txtoit-icons-for-plugins' ),
-						'desc'    => __( 'Label for Account Kit tab', 'txtoit-icons-for-plugins' ),
-						'type'    => 'text',
-						'default' => __( 'Account Kit', 'txtoit-icons-for-plugins' )
-					),*/
 				)
 
 			);
