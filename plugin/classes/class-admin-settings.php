@@ -254,7 +254,7 @@ if ( ! class_exists( 'TxToIT\IFP\Admin_Settings' ) ) {
 			$settings_api = self::get_settings_api();
 
 			echo '<div class="ifp-wrapper wrap">';
-			echo '<h1 style="margin-bottom:7px">TxToIt - Icons for Plugins</h1>';
+			echo '<h1 style="margin-bottom:7px">TxToIT - Icons for Plugins</h1>';
 			$settings_api->show_navigation();
 			$settings_api->show_forms();
 			echo '</div>';

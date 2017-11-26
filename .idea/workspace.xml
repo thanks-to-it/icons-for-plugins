@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4aeb882f-9922-4dba-95f4-dd663bcaec2e" name="Default" comment="" />
+    <list default="true" id="4aeb882f-9922-4dba-95f4-dd663bcaec2e" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugin/classes/class-admin-settings.php" afterPath="$PROJECT_DIR$/plugin/classes/class-admin-settings.php" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -12,7 +14,7 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="txtoit-icons-for-plugins.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="txtoit-icons-for-plugins.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/txtoit-icons-for-plugins.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="68">
@@ -22,14 +24,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="class-admin-settings.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="class-admin-settings.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/plugin/classes/class-admin-settings.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="445">
-              <caret line="187" column="69" lean-forward="false" selection-start-line="187" selection-start-column="69" selection-end-line="187" selection-end-column="69" />
+            <state relative-caret-position="581">
+              <caret line="263" column="28" lean-forward="true" selection-start-line="263" selection-start-column="28" selection-end-line="263" selection-end-column="28" />
               <folding>
                 <element signature="e#6#120#0#PHP" expanded="true" />
-                <marker date="1511717774010" expanded="true" signature="7383:7400" ph="..." />
+                <marker date="1511718150342" expanded="true" signature="7383:7400" ph="..." />
               </folding>
             </state>
           </provider>
@@ -62,6 +64,9 @@
       <replace>'txtoit-icons-for-plugins'</replace>
     </replaceStrings>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
@@ -73,8 +78,8 @@
         <option value="$PROJECT_DIR$/plugin/classes/class-settings-api.php" />
         <option value="$PROJECT_DIR$/plugin/classes/class-plugins-page.php" />
         <option value="$PROJECT_DIR$/icons-for-plugins.php" />
-        <option value="$PROJECT_DIR$/plugin/classes/class-admin-settings.php" />
         <option value="$PROJECT_DIR$/txtoit-icons-for-plugins.php" />
+        <option value="$PROJECT_DIR$/plugin/classes/class-admin-settings.php" />
       </list>
     </option>
   </component>
@@ -94,6 +99,7 @@
     <option name="width" value="1932" />
     <option name="height" value="1057" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages />
@@ -119,6 +125,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="txtoit-icons-for-plugins" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="txtoit-icons-for-plugins" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="txtoit-icons-for-plugins" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="plugin" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="classes" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -231,12 +255,12 @@
       <updated>1511394201077</updated>
       <workItem from="1511394202727" duration="13180000" />
       <workItem from="1511558916338" duration="10765000" />
-      <workItem from="1511717604007" duration="380000" />
+      <workItem from="1511717604007" duration="560000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24325000" />
+    <option name="totallyTimeSpent" value="24505000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="0" width="1932" height="1057" extended-state="0" />
@@ -247,7 +271,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -309,7 +333,7 @@
           <caret line="136" column="50" lean-forward="false" selection-start-line="136" selection-start-column="50" selection-end-line="136" selection-end-column="50" />
           <folding>
             <element signature="e#6#120#0#PHP" expanded="true" />
-            <marker date="1511717774010" expanded="true" signature="7383:7400" ph="..." />
+            <marker date="1511718150342" expanded="true" signature="7383:7400" ph="..." />
           </folding>
         </state>
       </provider>
@@ -448,17 +472,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/plugin/classes/class-admin-settings.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="445">
-          <caret line="187" column="69" lean-forward="false" selection-start-line="187" selection-start-column="69" selection-end-line="187" selection-end-column="69" />
-          <folding>
-            <element signature="e#6#120#0#PHP" expanded="true" />
-            <marker date="1511717774010" expanded="true" signature="7383:7400" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/readme.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -472,6 +485,17 @@
         <state relative-caret-position="68">
           <caret line="4" column="51" lean-forward="true" selection-start-line="4" selection-start-column="15" selection-end-line="4" selection-end-column="51" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugin/classes/class-admin-settings.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="581">
+          <caret line="263" column="28" lean-forward="true" selection-start-line="263" selection-start-column="28" selection-end-line="263" selection-end-column="28" />
+          <folding>
+            <element signature="e#6#120#0#PHP" expanded="true" />
+            <marker date="1511718150342" expanded="true" signature="7383:7400" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
