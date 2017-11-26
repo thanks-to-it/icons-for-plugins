@@ -3,9 +3,10 @@
 	"description": "Displays icons for WordPress plugins",
 	"keywords": [
 		"wordpress",
-		"contact",
-		"info",
-		"details"
+		"icon",
+		"icons",
+		"thumb",
+		"plugin"
 	],
 	"license": "MIT",
 	"authors": [
