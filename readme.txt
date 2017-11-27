@@ -9,9 +9,11 @@ Stable tag: 1.0.0
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
-Display icons for WordPress plugins
+Display icons for WordPress plugins on admin's plugins list page
 
 == Description ==
+
+**Icons for plugins** displays plugins icons on admin's plugins list page.
 
 Almost every WordPress plugin has it's own Icon / Banner. You may realize that when you are searching for plugins or when you at a plugin's page on wordpress.org.
 Icons can help you to understand what a plugin is about.
