@@ -39,7 +39,7 @@ On **settings > Plugins icons**, you can even play with some settings, like icon
 == Changelog ==
 
 = 1.0.1 - 28/11/2017 =
-* Initial Release.
+* Add option to guess icons
 
 = 1.0.0 - 26/11/2017 =
 * Initial Release.
