@@ -1,11 +1,11 @@
-=== TxToIT - Icons for Plugins ===
+=== Icons for Plugins ===
 Contributors: karzin
 Tags: wordpress,icons,icon,thumb,plugin,plugins
 Donate link: https://www.paypal.com/us/cgi-bin/webscr?cmd=_flow&SESSION=qrGcNf1aE2Nx2Vkcfv_OFiYbcQAQsoRsgi3ePexNjQa3l8niDeEh2K_nc5G&dispatch=5885d80a13c0db1f8e263663d3faee8dc3f308debf7330dd8d0b0a9f21afd7d3&rapidsState=Donation__DonationFlow___StateDonationBilling&rapidsStateSignature=4bc97c117e3c587844324ae77e4685c0697e5e49
 Requires at least: 4.4
 Requires PHP: 5.4
 Tested up to: 4.9
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -37,6 +37,9 @@ On **settings > Plugins icons**, you can even play with some settings, like icon
 1. Display icons on your installed WordPress plugins
 
 == Changelog ==
+
+= 1.0.1 - 28/11/2017 =
+* Initial Release.
 
 = 1.0.0 - 26/11/2017 =
 * Initial Release.

@@ -29,16 +29,20 @@ if ( ! class_exists( 'TxToIT\IFP\Plugins_Page' ) ) {
 				$grayscale       = filter_var( Admin_Settings::get_option_grayscale(), FILTER_VALIDATE_BOOLEAN );
 				$grayscale_class = $grayscale ? 'grayscale' : '';
 				$image_url       = Plugin_Image::get_image_url( $infs );
+				$guess_icons     = filter_var( Admin_Settings::get_option_guess_icons(), FILTER_VALIDATE_BOOLEAN );
 
 				if ( empty( $image_url ) ) {
-					if(strpos($plugin_full_name, '/') !== false){
-						$image_url_guess_1 = Plugin_Image::guess_plugin_image_url_by_name_after_dash( $plugin_full_name );
-						$image_url_guess_2 = Plugin_Image::guess_plugin_image_url_by_name_after_dash( $plugin_full_name,'jpg' );
-						$image_url_guess_3 = Plugin_Image::guess_plugin_image_url_by_name_before_dash( $plugin_full_name );
-						$image_url_guess_4 = Plugin_Image::guess_plugin_image_url_by_name_before_dash( $plugin_full_name, 'jpg' );
-					}else{
-						$image_url_guess_5 = Plugin_Image::guess_plugin_image_url( sanitize_title($infs['Title']), 'jpg' );
-						$image_url_guess_6 = Plugin_Image::guess_plugin_image_url( sanitize_title($infs['Title']), 'png' );
+					if ( $guess_icons ) {
+						if ( strpos( $plugin_full_name, '/' ) !== false ) {
+							$image_url_guess_1 = Plugin_Image::guess_plugin_image_url_by_name_after_dash( $plugin_full_name );
+							//wp_log(get_headers($image_url_guess_1));
+							$image_url_guess_2 = Plugin_Image::guess_plugin_image_url_by_name_after_dash( $plugin_full_name, 'jpg' );
+							$image_url_guess_3 = Plugin_Image::guess_plugin_image_url_by_name_before_dash( $plugin_full_name );
+							$image_url_guess_4 = Plugin_Image::guess_plugin_image_url_by_name_before_dash( $plugin_full_name, 'jpg' );
+						} else {
+							$image_url_guess_5 = Plugin_Image::guess_plugin_image_url( sanitize_title( $infs['Title'] ), 'jpg' );
+							$image_url_guess_6 = Plugin_Image::guess_plugin_image_url( sanitize_title( $infs['Title'] ), 'png' );
+						}
 					}
 				}
 
@@ -49,27 +53,30 @@ if ( ! class_exists( 'TxToIT\IFP\Plugins_Page' ) ) {
                              style="background-image:url(<?php echo $image_url; ?>)"></div>
 					<?php } else { ?>
                         <div class="ifp-icon no-img <?php echo $grayscale_class; ?>"></div>
-                        <?php if(strpos($plugin_full_name, '/') !== false){ ?>
-	                        <div class="ifp-icon ifp-guess <?php echo $grayscale_class; ?>"
-	                             data-guess-img="<?php echo $image_url_guess_1; ?>"
-	                             style="background-image:url(<?php echo $image_url_guess_1; ?>)"></div>
-	                        <div class="ifp-icon ifp-guess <?php echo $grayscale_class; ?>"
-	                             data-guess-img="<?php echo $image_url_guess_2; ?>"
-	                             style="background-image:url(<?php echo $image_url_guess_2; ?>)"></div>
-	                        <div class="ifp-icon ifp-guess <?php echo $grayscale_class; ?>"
-	                             data-guess-img="<?php echo $image_url_guess_3; ?>"
-	                             style="background-image:url(<?php echo $image_url_guess_3; ?>)"></div>
-	                        <div class="ifp-icon ifp-guess <?php echo $grayscale_class; ?>"
-	                             data-guess-img="<?php echo $image_url_guess_4; ?>"
-	                             style="background-image:url(<?php echo $image_url_guess_4; ?>)"></div>
-                         <?php }else{ ?>
-                         	<div class="ifp-icon ifp-guess <?php echo $grayscale_class; ?>"
-	                             data-guess-img="<?php echo $image_url_guess_5; ?>"
-	                             style="background-image:url(<?php echo $image_url_guess_5; ?>)"></div>
-	                             <div class="ifp-icon ifp-guess <?php echo $grayscale_class; ?>"
-	                             data-guess-img="<?php echo $image_url_guess_6; ?>"
-	                             style="background-image:url(<?php echo $image_url_guess_6; ?>)"></div>
-                         <?php } ?>
+						<?php if ( $guess_icons ) { ?>
+
+							<?php if ( strpos( $plugin_full_name, '/' ) !== false ) { ?>
+                                <div class="ifp-icon ifp-guess <?php echo $grayscale_class; ?>"
+                                     data-guess-img="<?php echo $image_url_guess_1; ?>"
+                                     style="background-image:url(<?php echo $image_url_guess_1; ?>)"></div>
+                                <div class="ifp-icon ifp-guess <?php echo $grayscale_class; ?>"
+                                     data-guess-img="<?php echo $image_url_guess_2; ?>"
+                                     style="background-image:url(<?php echo $image_url_guess_2; ?>)"></div>
+                                <div class="ifp-icon ifp-guess <?php echo $grayscale_class; ?>"
+                                     data-guess-img="<?php echo $image_url_guess_3; ?>"
+                                     style="background-image:url(<?php echo $image_url_guess_3; ?>)"></div>
+                                <div class="ifp-icon ifp-guess <?php echo $grayscale_class; ?>"
+                                     data-guess-img="<?php echo $image_url_guess_4; ?>"
+                                     style="background-image:url(<?php echo $image_url_guess_4; ?>)"></div>
+							<?php } else { ?>
+                                <div class="ifp-icon ifp-guess <?php echo $grayscale_class; ?>"
+                                     data-guess-img="<?php echo $image_url_guess_5; ?>"
+                                     style="background-image:url(<?php echo $image_url_guess_5; ?>)"></div>
+                                <div class="ifp-icon ifp-guess <?php echo $grayscale_class; ?>"
+                                     data-guess-img="<?php echo $image_url_guess_6; ?>"
+                                     style="background-image:url(<?php echo $image_url_guess_6; ?>)"></div>
+							<?php } ?>
+						<?php } ?>
 					<?php } ?>
                 </div>
 				<?php

@@ -1,9 +1,9 @@
 <?php
 /*
-* Plugin Name: TxToIT - Icons for Plugins
+* Plugin Name: Icons for Plugins - TxToIT
 * Plugin URI: https://github.com/thanks-to-it/icons-for-plugins
 * Description: Displays icons for WordPress plugins
-* Version: 1.0.0
+* Version: 1.0.1
 * Author: Pablo Pacheco
 * Author URI: https://github.com/pablo-sg-pacheco
 * License: GNU General Public License v3.0

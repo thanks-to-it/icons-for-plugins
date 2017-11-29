@@ -33,7 +33,7 @@ if ( ! class_exists( 'TxToIT\IFP\Admin_Settings' ) ) {
 		public static $option_column_position = 'ifp_col_position';
 		public static $option_grayscale_icon = 'ifp_grayscale_icon';
 		public static $option_background_size = 'ifp_background_size';
-
+		public static $option_guess_plugin_img = 'ifp_guess_plugin_img';
 
 		/**
 		 * Setups settings API
@@ -100,6 +100,10 @@ if ( ! class_exists( 'TxToIT\IFP\Admin_Settings' ) ) {
 			return self::get_option( self::$option_background_size, self::$section_general, 'cover' );
 		}
 
+		public static function get_option_guess_icons(){
+			return self::get_option( self::$option_guess_plugin_img, self::$section_general, 1 );
+		}
+
 		/**
 		 * Get settings sections
 		 *
@@ -149,6 +153,14 @@ if ( ! class_exists( 'TxToIT\IFP\Admin_Settings' ) ) {
 						'label'   => __( 'Icon column', 'txtoit-icons-for-plugins' ),
 						'desc'    => __( "Column number where icons will be displayed", 'txtoit-icons-for-plugins' ),
 						'type'    => 'number',
+						'default' => 1
+					),
+
+					array(
+						'name'    => self::$option_guess_plugin_img,
+						'label'   => __( 'Guess plugin icons', 'txtoit-icons-for-plugins' ),
+						'desc'    => __( "This option will try to guess plugins icons in case authors don't specify icons properly.", 'txtoit-icons-for-plugins' ).'<br />'.'<p class="description"><strong>'.__( "Note:", 'txtoit-icons-for-plugins' ).'</strong> '.__( "It will may generate many 404 and 503 warnings on console though", 'txtoit-icons-for-plugins' ).'</p>',
+						'type'    => 'checkbox',
 						'default' => 1
 					),
 
@@ -240,7 +252,7 @@ if ( ! class_exists( 'TxToIT\IFP\Admin_Settings' ) ) {
 			$settings_api = self::get_settings_api();
 
 			echo '<div class="ifp-wrapper wrap">';
-			echo '<h1 style="margin-bottom:7px">TxToIT - Icons for Plugins</h1>';
+			echo '<h1 style="margin-bottom:7px">Icons for Plugins</h1>';
 			$settings_api->show_navigation();
 			$settings_api->show_forms();
 			echo '</div>';
