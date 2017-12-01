@@ -1,7 +1,7 @@
 === Icons for Plugins - TxToIT ===
 Contributors: karzin
 Tags: wordpress,icons,icon,thumb,plugin,plugins,admin,icons-for-plugins
-Donate link: https://www.paypal.com/us/cgi-bin/webscr?cmd=_flow&SESSION=qrGcNf1aE2Nx2Vkcfv_OFiYbcQAQsoRsgi3ePexNjQa3l8niDeEh2K_nc5G&dispatch=5885d80a13c0db1f8e263663d3faee8dc3f308debf7330dd8d0b0a9f21afd7d3&rapidsState=Donation__DonationFlow___StateDonationBilling&rapidsStateSignature=4bc97c117e3c587844324ae77e4685c0697e5e49
+Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=BAC8PT82YMTJL&lc=US&item_name=Icons%20for%20Plugins%20%2d%20TxToIT&item_number=icons%2dfor%2dplugins&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted
 Requires at least: 4.4
 Requires PHP: 5.4
 Tested up to: 4.9
