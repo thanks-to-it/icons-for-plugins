@@ -32,6 +32,9 @@ if ( ! class_exists( 'TxToIT\IFP\Plugin_Image' ) ) {
 				$image_url = $plugin_infs['banners']['2x'];
 			}
 
+			$plugin_title = !empty( $plugin_infs['Title'] ) ? $plugin_infs['Title'] : '';
+			$plugin_title = !empty( $plugin_infs['title'] ) ? $plugin_infs['title'] : $plugin_title;
+			$image_url = apply_filters( "ifp_plugin_icon_url", $image_url, $plugin_title, $plugin_infs );
 			return $image_url;
 		}
 

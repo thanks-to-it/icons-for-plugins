@@ -1,11 +1,11 @@
 === Icons for Plugins - TxToIT ===
 Contributors: karzin
-Tags: wordpress,icons,icon,thumb,plugin,plugins
+Tags: wordpress,icons,icon,thumb,plugin,plugins,admin,icons-for-plugins
 Donate link: https://www.paypal.com/us/cgi-bin/webscr?cmd=_flow&SESSION=qrGcNf1aE2Nx2Vkcfv_OFiYbcQAQsoRsgi3ePexNjQa3l8niDeEh2K_nc5G&dispatch=5885d80a13c0db1f8e263663d3faee8dc3f308debf7330dd8d0b0a9f21afd7d3&rapidsState=Donation__DonationFlow___StateDonationBilling&rapidsStateSignature=4bc97c117e3c587844324ae77e4685c0697e5e49
 Requires at least: 4.4
 Requires PHP: 5.4
 Tested up to: 4.9
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -16,15 +16,29 @@ Display icons for WordPress plugins on admin's plugins list page
 **Icons for plugins** displays plugins icons on admin's plugins list page.
 
 Almost every WordPress plugin has it's own Icon / Banner. You may realize that when you are searching for plugins or when you at a plugin's page on wordpress.org.
-Icons can help you to understand what a plugin is about.
+Icons can help you understand what a plugin is about.
 
-However, it's not allowed to display icons once you install plugins.
-It would be so handy to see them. They would help you to identify plugins quickier and at least they would turn that plugins list into something less boring, right?
+However, it's not allowed to display icons on admin plugins page (wp-admin/plugins.php).
+It would be so handy to see them. They would help you identify plugins quickier and at least they would turn that plugins list into something less boring, right?
 
 Well, now you can display them.
 Simply enable this plugin and you will see plugins icons on admin plugins page.
 
-On **settings > Plugins icons**, you can even play with some settings, like icon's size and the column position they will be displayed.
+On **Settings > Plugins icons**, you can even play with some settings, like icon's size and the column position they will be displayed.
+
+== Frequently Asked Questions ==
+= How to register icons for plugins that aren't on the WordPress repository? =
+You can use the filter **'ifp_plugin_icon_url'**. See its documentation below
+
+= Are there any hooks / filters available? =
+**ifp_plugin_icon_url** - Allows to add icons for any plugins
+
+`add_filter( 'ifp_plugin_icon_url', function( $icon_url, $plugin_title, $plugin_infs ){
+    if( $plugin_title == 'Your Plugin Name' ){
+        $icon_url = 'http://your-image.jpg';
+    }
+    return $icon_url;
+}, 10, 3 );`
 
 == Installation ==
 
@@ -38,6 +52,9 @@ On **settings > Plugins icons**, you can even play with some settings, like icon
 
 == Changelog ==
 
+= 1.0.2 - 30/11/2017 =
+* Add filter 'ifp_plugin_icon_url' to allow registering icons for any plugins
+
 = 1.0.1 - 28/11/2017 =
 * Add option to guess icons
 
@@ -46,5 +63,5 @@ On **settings > Plugins icons**, you can even play with some settings, like icon
 
 == Upgrade Notice ==
 
-= 1.0.0 =
-* Initial Release
+= 1.0.2 - 30/11/2017 =
+* Add filter 'ifp_plugin_icon_url' to allow registering icons for any plugins
