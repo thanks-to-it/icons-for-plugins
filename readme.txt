@@ -65,6 +65,9 @@ You can use the filter **'ifp_plugin_icon_url'**. See its documentation below
 
 == Changelog ==
 
+= 1.0.3 - 06/12/2017 =
+* Improve readme
+
 = 1.0.2 - 30/11/2017 =
 * Add filter 'ifp_plugin_icon_url' to allow registering icons for any plugins
 
@@ -76,5 +79,5 @@ You can use the filter **'ifp_plugin_icon_url'**. See its documentation below
 
 == Upgrade Notice ==
 
-= 1.0.2 - 30/11/2017 =
-* Add filter 'ifp_plugin_icon_url' to allow registering icons for any plugins
+= 1.0.3 =
+* Improve readme
