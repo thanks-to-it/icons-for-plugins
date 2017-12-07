@@ -5,7 +5,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=BAC8P
 Requires at least: 4.4
 Requires PHP: 5.4
 Tested up to: 4.9
-Stable tag: 1.0.3
+Stable tag: 1.0.4
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -65,6 +65,9 @@ You can use the filter **'ifp_plugin_icon_url'**. See its documentation below
 
 == Changelog ==
 
+= 1.0.4 - 06/12/2017 =
+* Change autoloader
+
 = 1.0.3 - 06/12/2017 =
 * Improve readme
 
@@ -79,5 +82,5 @@ You can use the filter **'ifp_plugin_icon_url'**. See its documentation below
 
 == Upgrade Notice ==
 
-= 1.0.3 =
-* Improve readme
+= 1.0.4 =
+* Change autoloader

@@ -3,7 +3,7 @@
 * Plugin Name: Icons for Plugins - TxToIT
 * Plugin URI: https://github.com/thanks-to-it/icons-for-plugins
 * Description: Displays icons for WordPress plugins
-* Version: 1.0.3
+* Version: 1.0.4
 * Author: Pablo Pacheco
 * Author URI: https://github.com/pablo-sg-pacheco
 * License: GNU General Public License v3.0
@@ -12,16 +12,7 @@
 * Domain Path: /languages
 */
 
-use Pablo_Pacheco\WP_Namespace_Autoloader\WP_Namespace_Autoloader;
-
-// Autoload classes
-require_once( "vendor/autoload.php" );
-$autoloader = new WP_Namespace_Autoloader( array(
-	'directory'        => __DIR__,
-	'namespace_prefix' => 'TxToIT\IFP',
-	'classes_dir'      => 'plugin\classes',
-) );
-$autoloader->init();
+require __DIR__ . '/vendor/autoload.php';
 
 // Initializes plugin
 $plugin = \TxToIT\IFP\Core::get_instance();

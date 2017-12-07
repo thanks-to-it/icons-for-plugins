@@ -91,6 +91,12 @@ return array(
     'Composer\\Installers\\YawikInstaller' => $vendorDir . '/composer/installers/src/Composer/Installers/YawikInstaller.php',
     'Composer\\Installers\\ZendInstaller' => $vendorDir . '/composer/installers/src/Composer/Installers/ZendInstaller.php',
     'Composer\\Installers\\ZikulaInstaller' => $vendorDir . '/composer/installers/src/Composer/Installers/ZikulaInstaller.php',
-    'Pablo_Pacheco\\WP_Namespace_Autoloader\\WP_Namespace_Autoloader' => $vendorDir . '/pablo-sg-pacheco/wp-namespace-autoloader/src/WP_Namespace_Autoloader.php',
+    'TxToIT\\IFP\\Admin_Settings' => $baseDir . '/plugin/classes/class-admin-settings.php',
+    'TxToIT\\IFP\\Core' => $baseDir . '/plugin/classes/class-core.php',
+    'TxToIT\\IFP\\Plugin_Image' => $baseDir . '/plugin/classes/class-plugin-image.php',
+    'TxToIT\\IFP\\Plugin_Name' => $baseDir . '/plugin/classes/class-plugin-name.php',
+    'TxToIT\\IFP\\Plugins_Page' => $baseDir . '/plugin/classes/class-plugins-page.php',
+    'TxToIT\\IFP\\Settings_API' => $baseDir . '/plugin/classes/class-settings-api.php',
+    'TxToIT\\IFP\\WP_Plugin' => $baseDir . '/plugin/classes/class-wp-plugin.php',
     'WeDevs_Settings_API' => $vendorDir . '/tareq1988/wordpress-settings-api-class/src/class.settings-api.php',
 );

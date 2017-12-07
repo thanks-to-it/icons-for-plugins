@@ -6,6 +6,5 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Pablo_Pacheco\\WP_Namespace_Autoloader\\' => array($vendorDir . '/pablo-sg-pacheco/wp-namespace-autoloader/src'),
     'Composer\\Installers\\' => array($vendorDir . '/composer/installers/src/Composer/Installers'),
 );

@@ -7,10 +7,6 @@ namespace Composer\Autoload;
 class ComposerStaticInit0cbf55d2fdb8bfe9276a6b22829c2490
 {
     public static $prefixLengthsPsr4 = array (
-        'P' => 
-        array (
-            'Pablo_Pacheco\\WP_Namespace_Autoloader\\' => 38,
-        ),
         'C' => 
         array (
             'Composer\\Installers\\' => 20,
@@ -18,10 +14,6 @@ class ComposerStaticInit0cbf55d2fdb8bfe9276a6b22829c2490
     );
 
     public static $prefixDirsPsr4 = array (
-        'Pablo_Pacheco\\WP_Namespace_Autoloader\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/pablo-sg-pacheco/wp-namespace-autoloader/src',
-        ),
         'Composer\\Installers\\' => 
         array (
             0 => __DIR__ . '/..' . '/composer/installers/src/Composer/Installers',
@@ -114,7 +106,13 @@ class ComposerStaticInit0cbf55d2fdb8bfe9276a6b22829c2490
         'Composer\\Installers\\YawikInstaller' => __DIR__ . '/..' . '/composer/installers/src/Composer/Installers/YawikInstaller.php',
         'Composer\\Installers\\ZendInstaller' => __DIR__ . '/..' . '/composer/installers/src/Composer/Installers/ZendInstaller.php',
         'Composer\\Installers\\ZikulaInstaller' => __DIR__ . '/..' . '/composer/installers/src/Composer/Installers/ZikulaInstaller.php',
-        'Pablo_Pacheco\\WP_Namespace_Autoloader\\WP_Namespace_Autoloader' => __DIR__ . '/..' . '/pablo-sg-pacheco/wp-namespace-autoloader/src/WP_Namespace_Autoloader.php',
+        'TxToIT\\IFP\\Admin_Settings' => __DIR__ . '/../..' . '/plugin/classes/class-admin-settings.php',
+        'TxToIT\\IFP\\Core' => __DIR__ . '/../..' . '/plugin/classes/class-core.php',
+        'TxToIT\\IFP\\Plugin_Image' => __DIR__ . '/../..' . '/plugin/classes/class-plugin-image.php',
+        'TxToIT\\IFP\\Plugin_Name' => __DIR__ . '/../..' . '/plugin/classes/class-plugin-name.php',
+        'TxToIT\\IFP\\Plugins_Page' => __DIR__ . '/../..' . '/plugin/classes/class-plugins-page.php',
+        'TxToIT\\IFP\\Settings_API' => __DIR__ . '/../..' . '/plugin/classes/class-settings-api.php',
+        'TxToIT\\IFP\\WP_Plugin' => __DIR__ . '/../..' . '/plugin/classes/class-wp-plugin.php',
         'WeDevs_Settings_API' => __DIR__ . '/..' . '/tareq1988/wordpress-settings-api-class/src/class.settings-api.php',
     );
 
