@@ -1,16 +1,16 @@
 #!/usr/bin/env bash
 
 # 1. Clone complete SVN repository to separate directory
-svn co $SVN_REPOSITORY ../svn
+#svn co $SVN_REPOSITORY ../svn
 
 # 2. Copy git repository contents to SNV trunk/ directory
-cp -R ./* ../svn/trunk/
+#cp -R ./* ../svn/trunk/
 
 # 3. Switch to SVN repository
-cd ../svn/trunk/
+#cd ../svn/trunk/
 
 # 4. Move assets/ to SVN /assets/
-mv ./wporg_assets/ ../assets/
+#mv ./wporg_assets/ ../assets/
 
 # 5. Clean up unnecessary files
 # rm -rf .git/
@@ -18,10 +18,111 @@ mv ./wporg_assets/ ../assets/
 # rm .travis.yml
 
 # 6. Go to SVN repository root
-cd ../
+#cd ../
 
 # 7. Create SVN tag
-svn cp trunk tags/$TRAVIS_TAG
+#svn cp trunk tags/$TRAVIS_TAG
 
 # 8. Push SVN tag
-svn ci --no-auth-cache -m "Release $TRAVIS_TAG" --username $SVN_USERNAME --password $SVN_PASSWORD
+#svn ci --no-auth-cache -m "Release $TRAVIS_TAG" --username $SVN_USERNAME --password $SVN_PASSWORD
+
+
+
+
+
+
+
+#!/usr/bin/env bash
+
+if [[ -z "$SVN_PASSWORD" ]]; then
+	echo "WordPress.org password not set" 1>&2
+	exit 1
+fi
+
+if [[ -z "$TRAVIS_BRANCH" || "$TRAVIS_BRANCH" != "master" ]]; then
+	echo "Build branch is required and must be 'master'" 1>&2
+	exit 0
+fi
+
+WP_ORG_USERNAME="$SVN_USERNAME"
+PLUGIN="mergebot"
+PROJECT_ROOT="$( cd "$( dirname "${BASH_SOURCE[0]}" )/.." && pwd )"
+PLUGIN_BUILDS_PATH="$PROJECT_ROOT/builds"
+PLUGIN_BUILD_CONFIG_PATH="$PROJECT_ROOT/build-cfg"
+VERSION=$(/usr/bin/php -f "$PLUGIN_BUILD_CONFIG_PATH/utils/get_plugin_version.php" "$PROJECT_ROOT" "$PLUGIN_NAME")
+ZIP_FILE="$PLUGIN_BUILDS_PATH/$PLUGIN-$VERSION.zip"
+
+# Ensure the zip file for the current version has been built
+if [ ! -f "$ZIP_FILE" ]; then
+    echo "Built zip file $ZIP_FILE does not exist" 1>&2
+    exit 1
+fi
+
+# Check if the tag exists for the version we are building
+TAG=$(svn ls "https://plugins.svn.wordpress.org/$PLUGIN_NAME/tags/$VERSION")
+error=$?
+if [ $error == 0 ]; then
+    # Tag exists, don't deploy
+    echo "Tag already exists for version $VERSION, aborting deployment"
+    exit 1
+fi
+  
+cd "$PLUGIN_BUILDS_PATH"
+# Remove any unzipped dir so we start from scratch
+rm -fR "$PLUGIN_NAME"
+# Unzip the built plugin
+unzip -q -o "$ZIP_FILE"
+
+# Clean up any previous svn dir
+rm -fR svn
+
+# Checkout the SVN repo
+svn co -q "http://svn.wp-plugins.org/$PLUGIN_NAME" svn
+
+# Move out the trunk directory to a temp location
+mv svn/trunk ./svn-trunk
+# Create trunk directory
+mkdir svn/trunk
+# Copy our new version of the plugin into trunk
+rsync -r -p $PLUGIN_NAME/* svn/trunk
+
+# Copy all the .svn folders from the checked out copy of trunk to the new trunk.
+# This is necessary as the Travis container runs Subversion 1.6 which has .svn dirs in every sub dir
+cd svn/trunk/
+TARGET=$(pwd)
+cd ../../svn-trunk/
+
+# Find all .svn dirs in sub dirs
+SVN_DIRS=`find . -type d -iname .svn`
+
+for SVN_DIR in $SVN_DIRS; do
+    SOURCE_DIR=${SVN_DIR/.}
+    TARGET_DIR=$TARGET${SOURCE_DIR/.svn}
+    TARGET_SVN_DIR=$TARGET${SVN_DIR/.}
+    if [ -d "$TARGET_DIR" ]; then
+        # Copy the .svn directory to trunk dir
+        cp -r $SVN_DIR $TARGET_SVN_DIR
+    fi
+done
+
+# Back to builds dir
+cd ../
+
+# Remove checked out dir
+rm -fR svn-trunk
+
+# Add new version tag
+mkdir svn/tags/$VERSION
+rsync -r -p $PLUGIN_NAME/* svn/tags/$VERSION
+
+# Add new files to SVN
+svn stat svn | grep '^?' | awk '{print $2}' | xargs -I x svn add x@
+# Remove deleted files from SVN
+svn stat svn | grep '^!' | awk '{print $2}' | xargs -I x svn rm --force x@
+svn stat svn
+
+# Commit to SVN
+svn ci --no-auth-cache --username $WP_ORG_USERNAME --password $SVN_PASSWORD svn -m "Deploy version $VERSION"
+
+# Remove SVN temp dir
+rm -fR svn
