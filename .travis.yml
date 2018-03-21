@@ -22,6 +22,11 @@ deploy:
     tags: true
 
 # Deployment script requires few enviromnet variables
+env:
+  global:
+  - SVN_REPOSITORY=$SVN_REPOSITORY
+  - SVN_USERNAME=$SVN_USERNAME
+  - SVN_PASSWORD=$SVN_PASSWORD
 #env:
 #  global:
 #  - SVN_REPOSITORY={PLUGIN SVN REPOSITORY URL}
