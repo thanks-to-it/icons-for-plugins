@@ -13,7 +13,7 @@ cd ../svn/trunk/
 mv ./wporg_assets/ ../assets/
 
 # 5. Clean up unnecessary files
-rm -rf .git/
+# rm -rf .git/
 # rm travis-deploy.sh
 # rm .travis.yml
 
