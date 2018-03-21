@@ -26,14 +26,14 @@ if ( ! class_exists( 'TxToIT\IFP\Admin_Settings' ) ) {
 		public static $section_general = 'ifp_general';
 
 		// Options
-		public static $option_icon_width = 'ifp_icon_width';
-		public static $option_icon_height = 'ifp_icon_height';
-		public static $option_empty_icon_url = 'ifp_empty_icon_url';
+		public static $option_icon_width         = 'ifp_icon_width';
+		public static $option_icon_height        = 'ifp_icon_height';
+		public static $option_empty_icon_url     = 'ifp_empty_icon_url';
 		public static $option_empty_icon_opacity = 'ifp_empty_icon_opacity';
-		public static $option_column_position = 'ifp_col_position';
-		public static $option_grayscale_icon = 'ifp_grayscale_icon';
-		public static $option_background_size = 'ifp_background_size';
-		public static $option_guess_plugin_img = 'ifp_guess_plugin_img';
+		public static $option_column_position    = 'ifp_col_position';
+		public static $option_grayscale_icon     = 'ifp_grayscale_icon';
+		public static $option_background_size    = 'ifp_background_size';
+		public static $option_guess_plugin_img   = 'ifp_guess_plugin_img';
 
 		/**
 		 * Setups settings API
@@ -44,11 +44,11 @@ if ( ! class_exists( 'TxToIT\IFP\Admin_Settings' ) ) {
 		public static function setup_settings_api() {
 			$settings_api = self::get_settings_api();
 
-			//set the settings
+			// set the settings
 			$settings_api->set_sections( self::get_settings_sections() );
 			$settings_api->set_fields( self::get_settings_fields() );
 
-			//initialize settings
+			// initialize settings
 			$settings_api->admin_init();
 		}
 
@@ -100,7 +100,7 @@ if ( ! class_exists( 'TxToIT\IFP\Admin_Settings' ) ) {
 			return self::get_option( self::$option_background_size, self::$section_general, 'cover' );
 		}
 
-		public static function get_option_guess_icons(){
+		public static function get_option_guess_icons() {
 			return self::get_option( self::$option_guess_plugin_img, self::$section_general, 1 );
 		}
 
@@ -115,7 +115,7 @@ if ( ! class_exists( 'TxToIT\IFP\Admin_Settings' ) ) {
 			$sections = array(
 				array(
 					'id'    => self::$section_general,
-					'title' => __( 'General Settings', 'txtoit-icons-for-plugins' )
+					'title' => __( 'General Settings', 'txtoit-icons-for-plugins' ),
 				),
 			);
 			return $sections;
@@ -143,25 +143,25 @@ if ( ! class_exists( 'TxToIT\IFP\Admin_Settings' ) ) {
 					array(
 						'name'    => self::$option_grayscale_icon,
 						'label'   => __( 'Grayscale icons', 'txtoit-icons-for-plugins' ),
-						'desc'    => __( "Displays icons in grayscale", 'txtoit-icons-for-plugins' ),
+						'desc'    => __( 'Displays icons in grayscale', 'txtoit-icons-for-plugins' ),
 						'type'    => 'checkbox',
-						'default' => 'no'
+						'default' => 'no',
 					),
 
 					array(
 						'name'    => self::$option_column_position,
 						'label'   => __( 'Icon column', 'txtoit-icons-for-plugins' ),
-						'desc'    => __( "Column number where icons will be displayed", 'txtoit-icons-for-plugins' ),
+						'desc'    => __( 'Column number where icons will be displayed', 'txtoit-icons-for-plugins' ),
 						'type'    => 'number',
-						'default' => 1
+						'default' => 1,
 					),
 
 					array(
 						'name'    => self::$option_guess_plugin_img,
 						'label'   => __( 'Guess plugin icons', 'txtoit-icons-for-plugins' ),
-						'desc'    => __( "This option will try to guess plugins icons in case authors don't specify icons properly.", 'txtoit-icons-for-plugins' ).'<br />'.'<p class="description"><strong>'.__( "Note:", 'txtoit-icons-for-plugins' ).'</strong> '.__( "It will may generate many 404 and 503 warnings on console though", 'txtoit-icons-for-plugins' ).'</p>',
+						'desc'    => __( "This option will try to guess plugins icons in case authors don't specify icons properly.", 'txtoit-icons-for-plugins' ) . '<br />' . '<p class="description"><strong>' . __( 'Note:', 'txtoit-icons-for-plugins' ) . '</strong> ' . __( 'It will may generate many 404 and 503 warnings on console though', 'txtoit-icons-for-plugins' ) . '</p>',
 						'type'    => 'checkbox',
-						'default' => 1
+						'default' => 1,
 					),
 
 					// ICON DIMENSIONS
@@ -173,16 +173,16 @@ if ( ! class_exists( 'TxToIT\IFP\Admin_Settings' ) ) {
 					array(
 						'name'    => self::$option_icon_width,
 						'label'   => __( 'Width', 'txtoit-icons-for-plugins' ),
-						//'desc'    => __( 'Adds tabs in admin login form in order to display Account Kit buttons', 'txtoit-icons-for-plugins' ),
+						// 'desc'    => __( 'Adds tabs in admin login form in order to display Account Kit buttons', 'txtoit-icons-for-plugins' ),
 						'type'    => 'number',
-						'default' => 38
+						'default' => 38,
 					),
 					array(
 						'name'    => self::$option_icon_height,
 						'label'   => __( 'Height', 'txtoit-icons-for-plugins' ),
-						//'desc'    => __( 'Adds tabs in admin login form in order to display Account Kit buttons', 'txtoit-icons-for-plugins' ),
+						// 'desc'    => __( 'Adds tabs in admin login form in order to display Account Kit buttons', 'txtoit-icons-for-plugins' ),
 						'type'    => 'number',
-						'default' => 38
+						'default' => 38,
 					),
 					array(
 						'name'    => self::$option_background_size,
@@ -190,9 +190,9 @@ if ( ! class_exists( 'TxToIT\IFP\Admin_Settings' ) ) {
 						'type'    => 'select',
 						'options' => array(
 							'cover'   => __( 'Cover', 'txtoit-icons-for-plugins' ),
-							'contain' => __( 'Contain', 'txtoit-icons-for-plugins' )
+							'contain' => __( 'Contain', 'txtoit-icons-for-plugins' ),
 						),
-						'default' => 'cover'
+						'default' => 'cover',
 					),
 
 					array(
@@ -204,22 +204,22 @@ if ( ! class_exists( 'TxToIT\IFP\Admin_Settings' ) ) {
 					array(
 						'name'    => self::$option_empty_icon_url,
 						'label'   => __( 'Image URL', 'txtoit-icons-for-plugins' ),
-						'desc'    => __( "Image displayed when a plugin has no icon.", 'txtoit-icons-for-plugins' ),
+						'desc'    => __( 'Image displayed when a plugin has no icon.', 'txtoit-icons-for-plugins' ),
 						'type'    => 'text',
-						'default' => 'https://cdn2.iconfinder.com/data/icons/picol-vector/32/image_cancel-128.png'
+						'default' => 'https://cdn2.iconfinder.com/data/icons/picol-vector/32/image_cancel-128.png',
 					),
 
 					array(
 						'name'    => self::$option_empty_icon_opacity,
 						'label'   => __( 'Opacity', 'txtoit-icons-for-plugins' ),
-						'desc'    => __( "Empty icon opacity. Min 0,  Max 1", 'txtoit-icons-for-plugins' ),
+						'desc'    => __( 'Empty icon opacity. Min 0,  Max 1', 'txtoit-icons-for-plugins' ),
 						'type'    => 'number',
 						'min'     => 0,
 						'max'     => 1,
 						'step'    => 0.05,
-						'default' => 0.15
+						'default' => 0.15,
 					),
-				)
+				),
 
 			);
 			return $settings_fields;
@@ -283,7 +283,7 @@ if ( ! class_exists( 'TxToIT\IFP\Admin_Settings' ) ) {
 		 * @since   1.0.0
 		 */
 		public static function create_options_page() {
-			add_options_page( "Plugins icons", 'Plugins icons', 'delete_posts', 'txtoit-icons-for-plugins', array( __CLASS__, 'output_options_page' ) );
+			add_options_page( 'Plugins icons', 'Plugins icons', 'delete_posts', 'txtoit-icons-for-plugins', array( __CLASS__, 'output_options_page' ) );
 		}
 
 	}

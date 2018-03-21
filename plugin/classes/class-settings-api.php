@@ -26,7 +26,7 @@ if ( ! class_exists( 'TxToIT\IFP\Settings_API' ) ) {
 		 * @param array $args settings field args
 		 */
 		function callback_title( $args ) {
-			$html       = $this->get_field_description( $args );
+			$html = $this->get_field_description( $args );
 			echo $html;
 		}
 
@@ -39,7 +39,7 @@ if ( ! class_exists( 'TxToIT\IFP\Settings_API' ) ) {
 		 * @param array $args settings field args
 		 */
 		function callback_description( $args ) {
-			$html       = $this->get_field_description( $args );
+			$html = $this->get_field_description( $args );
 			echo $html;
 		}
 
@@ -52,28 +52,28 @@ if ( ! class_exists( 'TxToIT\IFP\Settings_API' ) ) {
 		function _style_fix() {
 			parent::_style_fix();
 			?>
-            <style>
-                #wpbody-content .metabox-holder h2{ padding: 0 !important; }
-                .wedevs-title th {
-                    color: #23282d;
-                }
-                .wedevs-title label{
-                    font-size: 1.3em !important;
-                }
-                .wedevs-title * {
-                    cursor: auto;
-                }
-                [id*="ifp_"] h2{
-                    font-weight:bold;
-                    display:none;
-                }
-                [id*="ifp_"] form div:last-child{
-                     padding-left:0 !important;
-                 }
-                .ifp-wrapper .metabox-holder{
-                    padding-top:0 !important;
-                }
-            </style>
+			<style>
+				#wpbody-content .metabox-holder h2{ padding: 0 !important; }
+				.wedevs-title th {
+					color: #23282d;
+				}
+				.wedevs-title label{
+					font-size: 1.3em !important;
+				}
+				.wedevs-title * {
+					cursor: auto;
+				}
+				[id*="ifp_"] h2{
+					font-weight:bold;
+					display:none;
+				}
+				[id*="ifp_"] form div:last-child{
+					 padding-left:0 !important;
+				 }
+				.ifp-wrapper .metabox-holder{
+					padding-top:0 !important;
+				}
+			</style>
 			<?php
 		}
 
@@ -91,7 +91,7 @@ if ( ! class_exists( 'TxToIT\IFP\Settings_API' ) ) {
 				foreach ( $field as $key => $option ) {
 					if ( $option['type'] == 'title' ) {
 						$fields[ $section ][ $key ]['class'] = 'wedevs-title';
-						//$fields[ $section ][ $key ]['name'] = '';
+						// $fields[ $section ][ $key ]['name'] = '';
 					}
 				}
 			}

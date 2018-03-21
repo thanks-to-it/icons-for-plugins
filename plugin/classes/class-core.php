@@ -9,6 +9,9 @@
 
 namespace TxToIT\IFP;
 
+use TxToIT\IFP\Plugins_Page;
+
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 } // Exit if accessed directly
@@ -23,7 +26,7 @@ if ( ! class_exists( 'TxToIT\IFP\Core' ) ) {
 			$this->handle_admin_settings();
 		}
 
-		private function handle_admin_plugins_page(){
+		private function handle_admin_plugins_page() {
 			add_filter( 'manage_plugins_columns', array( '\TxToIT\IFP\Plugins_Page', 'add_icons_column_header' ) );
 			add_action( 'manage_plugins_custom_column', array( '\TxToIT\IFP\Plugins_Page', 'add_icons_column_content' ), 10, 3 );
 			add_action( 'admin_head-plugins.php', array( '\TxToIT\IFP\Plugins_Page', 'add_style' ) );

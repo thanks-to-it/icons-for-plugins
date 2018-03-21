@@ -9,7 +9,6 @@
 
 namespace TxToIT\IFP;
 
-
 if ( ! class_exists( 'TxToIT\IFP\WP_Plugin' ) ) {
 
 	class WP_Plugin {
@@ -25,7 +24,7 @@ if ( ! class_exists( 'TxToIT\IFP\WP_Plugin' ) ) {
 
 
 		protected function __clone() {
-			//Me not like clones! Me smash clones!
+			// Me not like clones! Me smash clones!
 		}
 
 		/**
@@ -33,7 +32,7 @@ if ( ! class_exists( 'TxToIT\IFP\WP_Plugin' ) ) {
 		 */
 		public static function get_instance() {
 			if ( ! isset( static::$instance ) ) {
-				static::$instance = new static;
+				static::$instance = new static();
 			}
 
 			return static::$instance;
@@ -65,7 +64,6 @@ if ( ! class_exists( 'TxToIT\IFP\WP_Plugin' ) ) {
 			add_filter( 'plugin_action_links_' . $this->basename, array( $this, 'action_links' ) );
 			add_action( 'init', array( $this, 'handle_localization' ) );
 
-
 		}
 
 		/**
@@ -91,7 +89,6 @@ if ( ! class_exists( 'TxToIT\IFP\WP_Plugin' ) ) {
 		 *
 		 * @version 1.0.0
 		 * @since   1.0.0
-		 *
 		 */
 		public static function on_plugin_activation() {
 
@@ -146,23 +143,29 @@ if ( ! class_exists( 'TxToIT\IFP\WP_Plugin' ) ) {
 		 * @param array $args
 		 */
 		public function set_args( $args = array() ) {
-			$args = wp_parse_args( $args, array(
-				'plugin_file_path' => null,
-				'translation'      => null,
-				'action_links'     => null,
-			) );
+			$args = wp_parse_args(
+				$args, array(
+					'plugin_file_path' => null,
+					'translation'      => null,
+					'action_links'     => null,
+				)
+			);
 
-			$args['translation'] = wp_parse_args( $args['translation'], array(
-				'text_domain' => 'my_plugin',
-				'folder'      => 'languages',
-			) );
+			$args['translation'] = wp_parse_args(
+				$args['translation'], array(
+					'text_domain' => 'my_plugin',
+					'folder'      => 'languages',
+				)
+			);
 
-			$args['action_links'] = wp_parse_args( $args['action_links'], array(
-				array(
-					'url'  => '',
-					'text' => '',
-				),
-			) );
+			$args['action_links'] = wp_parse_args(
+				$args['action_links'], array(
+					array(
+						'url'  => '',
+						'text' => '',
+					),
+				)
+			);
 
 			$this->args = $args;
 		}

@@ -9,7 +9,6 @@
 
 namespace TxToIT\IFP;
 
-
 if ( ! class_exists( 'TxToIT\IFP\Plugin_Image' ) ) {
 
 	class Plugin_Image {
@@ -24,17 +23,17 @@ if ( ! class_exists( 'TxToIT\IFP\Plugin_Image' ) ) {
 
 			if ( ! empty( $plugin_infs['icons']['1x'] ) ) {
 				$image_url = $plugin_infs['icons']['1x'];
-			} else if ( ! empty( $plugin_infs['icons']['2x'] ) ) {
+			} elseif ( ! empty( $plugin_infs['icons']['2x'] ) ) {
 				$image_url = $plugin_infs['icons']['2x'];
-			} else if ( ! empty( $plugin_infs['banners']['1x'] ) ) {
+			} elseif ( ! empty( $plugin_infs['banners']['1x'] ) ) {
 				$image_url = $plugin_infs['banners']['1x'];
-			} else if ( ! empty( $plugin_infs['banners']['2x'] ) ) {
+			} elseif ( ! empty( $plugin_infs['banners']['2x'] ) ) {
 				$image_url = $plugin_infs['banners']['2x'];
 			}
 
-			$plugin_title = !empty( $plugin_infs['Title'] ) ? $plugin_infs['Title'] : '';
-			$plugin_title = !empty( $plugin_infs['title'] ) ? $plugin_infs['title'] : $plugin_title;
-			$image_url = apply_filters( "ifp_plugin_icon_url", $image_url, $plugin_title, $plugin_infs );
+			$plugin_title = ! empty( $plugin_infs['Title'] ) ? $plugin_infs['Title'] : '';
+			$plugin_title = ! empty( $plugin_infs['title'] ) ? $plugin_infs['title'] : $plugin_title;
+			$image_url    = apply_filters( 'ifp_plugin_icon_url', $image_url, $plugin_title, $plugin_infs );
 			return $image_url;
 		}
 
