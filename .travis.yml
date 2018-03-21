@@ -1,7 +1,7 @@
 language: php
 
 php:
-  - 5.6
+  - 7.0
 
 script:
 # Override default Travis script action [phpunit]
@@ -19,8 +19,7 @@ deploy:
   script: travis-deploy.sh
   # Restrict deployment only for tags
   on:
-    branch: dev
-    #tags: true
+    tags: true
 
 # Deployment script requires few enviromnet variables
 #env:
