@@ -20,6 +20,7 @@ deploy:
   # Restrict deployment only for tags
   on:
     branch: dev
+    
     #tags: true
 
 # Deployment script requires few enviromnet variables
