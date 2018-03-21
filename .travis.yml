@@ -16,7 +16,7 @@ branches:
 deploy:
   # Use script as a deployment tool
   provider: script
-  script: deploy/deploy.sh
+  script: $TRAVIS_BUILD_DIR/deploy/deploy.sh
   # Restrict deployment only for tags
   on:
     tags: true
