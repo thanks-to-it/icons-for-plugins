@@ -14,7 +14,7 @@ cd ../svn/trunk/
 
 # 5. Clean up unnecessary files
 rm -rf .git/
-rm -rf deploy/
+rm -rf travis-deploy.sh
 rm .travis.yml
 
 # 6. Go to SVN repository root
