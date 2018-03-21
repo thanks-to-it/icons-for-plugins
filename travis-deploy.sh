@@ -24,7 +24,7 @@ cd ../
 svn cp trunk tags/$TRAVIS_TAG
 
 # 8. Push SVN tag
-svn ci  -m "Release $TRAVIS_TAG" \
+svn ci --no-auth-cache \
+        -m "Release $TRAVIS_TAG" \
         --username $SVN_USERNAME \
         --password $SVN_PASSWORD \
-        --non-interactive
