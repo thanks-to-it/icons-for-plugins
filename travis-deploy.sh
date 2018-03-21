@@ -14,7 +14,7 @@ mv ./wporg_assets/ ../assets/
 
 # 5. Clean up unnecessary files
 rm -rf .git/
-rm -rf deploy/
+rm travis-deploy.sh
 rm .travis.yml
 
 # 6. Go to SVN repository root
