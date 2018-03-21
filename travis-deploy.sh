@@ -34,6 +34,11 @@
 
 #!/usr/bin/env bash
 
+if [[ -z "$TRAVIS" ]]; then
+	echo "Script is only to be run by Travis CI" 1>&2
+	exit 1
+fi
+
 if [[ -z "$SVN_PASSWORD" ]]; then
 	echo "WordPress.org password not set" 1>&2
 	exit 1
@@ -45,11 +50,11 @@ if [[ -z "$TRAVIS_BRANCH" || "$TRAVIS_BRANCH" != "master" ]]; then
 fi
 
 WP_ORG_USERNAME="$SVN_USERNAME"
-PLUGIN="mergebot"
+PLUGIN="$PLUGIN_NAME"
 PROJECT_ROOT="$( cd "$( dirname "${BASH_SOURCE[0]}" )/.." && pwd )"
 PLUGIN_BUILDS_PATH="$PROJECT_ROOT/builds"
 PLUGIN_BUILD_CONFIG_PATH="$PROJECT_ROOT/build-cfg"
-VERSION=$(/usr/bin/php -f "$PLUGIN_BUILD_CONFIG_PATH/utils/get_plugin_version.php" "$PROJECT_ROOT" "$PLUGIN_NAME")
+VERSION=$(/usr/bin/php -f "$PLUGIN_BUILD_CONFIG_PATH/utils/get_plugin_version.php" "$PROJECT_ROOT" "$PLUGIN")
 ZIP_FILE="$PLUGIN_BUILDS_PATH/$PLUGIN-$VERSION.zip"
 
 # Ensure the zip file for the current version has been built
@@ -59,17 +64,17 @@ if [ ! -f "$ZIP_FILE" ]; then
 fi
 
 # Check if the tag exists for the version we are building
-TAG=$(svn ls "https://plugins.svn.wordpress.org/$PLUGIN_NAME/tags/$VERSION")
+TAG=$(svn ls "https://plugins.svn.wordpress.org/$PLUGIN/tags/$VERSION")
 error=$?
 if [ $error == 0 ]; then
     # Tag exists, don't deploy
     echo "Tag already exists for version $VERSION, aborting deployment"
     exit 1
 fi
-  
+
 cd "$PLUGIN_BUILDS_PATH"
 # Remove any unzipped dir so we start from scratch
-rm -fR "$PLUGIN_NAME"
+rm -fR "$PLUGIN"
 # Unzip the built plugin
 unzip -q -o "$ZIP_FILE"
 
@@ -77,14 +82,14 @@ unzip -q -o "$ZIP_FILE"
 rm -fR svn
 
 # Checkout the SVN repo
-svn co -q "http://svn.wp-plugins.org/$PLUGIN_NAME" svn
+svn co -q "http://svn.wp-plugins.org/$PLUGIN" svn
 
 # Move out the trunk directory to a temp location
 mv svn/trunk ./svn-trunk
 # Create trunk directory
 mkdir svn/trunk
 # Copy our new version of the plugin into trunk
-rsync -r -p $PLUGIN_NAME/* svn/trunk
+rsync -r -p $PLUGIN/* svn/trunk
 
 # Copy all the .svn folders from the checked out copy of trunk to the new trunk.
 # This is necessary as the Travis container runs Subversion 1.6 which has .svn dirs in every sub dir
@@ -113,7 +118,7 @@ rm -fR svn-trunk
 
 # Add new version tag
 mkdir svn/tags/$VERSION
-rsync -r -p $PLUGIN_NAME/* svn/tags/$VERSION
+rsync -r -p $PLUGIN/* svn/tags/$VERSION
 
 # Add new files to SVN
 svn stat svn | grep '^?' | awk '{print $2}' | xargs -I x svn add x@
