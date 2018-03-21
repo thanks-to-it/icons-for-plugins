@@ -16,7 +16,7 @@ branches:
 deploy:
   # Use script as a deployment tool
   provider: script
-  script: .travis-deploy.sh
+  script: chmod +x travis-deploy.sh && travis-deploy.sh
   # Restrict deployment only for tags
   on:
     tags: true
