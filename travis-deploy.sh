@@ -18,18 +18,15 @@ rm -rfv ./wporg_assets/
 # 5. Clean up unnecessary files
 rm -rf .git/
 rm travis-deploy.sh
-# rm .travis.yml
 
 # 6. Go to SVN repository root
 cd ../
 
 # 7. Create SVN tag
-#rm -rf tags/$TRAVIS_TAG
 if [ -d "tags/$TRAVIS_TAG" ]; then rm -Rf tags/$TRAVIS_TAG; fi
 cp -fR trunk tags/$TRAVIS_TAG
 
 # 8. Push SVN tag
 svn add --force * --auto-props --parents --depth infinity -q
 svn status | grep '^\!' | sed 's/! *//' | xargs -I% svn rm %
-#svn rm $( svn status | sed -e '/^!/!d' -e 's/^!//' )
 svn ci --non-interactive --no-auth-cache -m "Release $TRAVIS_TAG" --username $SVN_USERNAME --password $SVN_PASSWORD
