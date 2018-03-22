@@ -28,4 +28,5 @@ cp -fR trunk tags/$TRAVIS_TAG
 
 # 8. Push SVN tag
 svn add --force * --auto-props --parents --depth infinity -q
+svn rm $( svn status | sed -e '/^!/!d' -e 's/^!//' )
 svn ci --non-interactive --no-auth-cache -m "Release $TRAVIS_TAG" --username $SVN_USERNAME --password $SVN_PASSWORD
