@@ -5,7 +5,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=BAC8P
 Requires at least: 4.4
 Requires PHP: 5.4
 Tested up to: 4.9
-Stable tag: 1.0.5
+Stable tag: 1.0.6
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -64,6 +64,9 @@ You can use the filter **'ifp_plugin_icon_url'**. See its documentation below
 1. Display icons on your installed WordPress plugins
 
 == Changelog ==
+
+= 1.0.6 - 21/03/2018 =
+* Improve travis setup
 
 = 1.0.5 - 20/03/2018 =
 * Config auto deploy with travis
