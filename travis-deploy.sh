@@ -10,12 +10,12 @@ cp -R ./* ../svn/trunk/
 cd ../svn/trunk/
 
 # 4. Move assets/ to SVN /assets/
-yes | cp -rf ./wporg_assets/ ../assets/
+mv wporg_assets/ ../assets/
 
 # 5. Clean up unnecessary files
-rm -rf ./.git/
-rm ./travis-deploy.sh
-rm ./.travis.yml
+rm -rf .git/
+rm travis-deploy.sh
+rm .travis.yml
 
 # 6. Go to SVN repository root
 cd ../
@@ -24,4 +24,4 @@ cd ../
 yes | cp -rf trunk tags/$TRAVIS_TAG
 
 # 8. Push SVN tag
-svn ci --no-auth-cache -m "Release $TRAVIS_TAG" --username $SVN_USERNAME --password $SVN_PASSWORD
+svn ci --non-interactive --no-auth-cache -m "Release $TRAVIS_TAG" --username $SVN_USERNAME --password $SVN_PASSWORD
