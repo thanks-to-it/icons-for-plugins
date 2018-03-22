@@ -4,14 +4,14 @@
 svn co https://plugins.svn.wordpress.org/$PLUGIN_SLUG ../svn
 
 # 2. Copy git repository contents to SNV trunk/ directory
-rm ../svn/trunk/*
+rm -rf ../svn/trunk/*
 cp -fR ./* ../svn/trunk/
 
 # 3. Switch to SVN repository
 cd ../svn/trunk/
 
 # 4. Move assets/ to SVN /assets/
-rm ../assets/*
+rm -rf ../assets/*
 mv ./wporg_assets/ ../assets/
 
 # 5. Clean up unnecessary files
