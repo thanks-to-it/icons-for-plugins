@@ -13,6 +13,7 @@ cd ../svn/trunk/
 # 4. Move assets/ to SVN /assets/
 rm -rfv ../assets/*
 mv ./wporg_assets/* ../assets/
+rm -rfv ./wporg_assets/
 
 # 5. Clean up unnecessary files
 rm -rf .git/
