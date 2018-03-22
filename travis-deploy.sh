@@ -24,7 +24,8 @@ rm .travis.yml
 cd ../
 
 # 7. Create SVN tag
-rm -rf tags/$TRAVIS_TAG
+#rm -rf tags/$TRAVIS_TAG
+if [ -d "tags/$TRAVIS_TAG" ]; then rm -Rf tags/$TRAVIS_TAG; fi
 cp -fR trunk tags/$TRAVIS_TAG
 
 # 8. Push SVN tag
