@@ -4,8 +4,8 @@ Tags: icons,thumb,plugins,admin,list,dashboard,page
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=BAC8PT82YMTJL&lc=US&item_name=Icons%20for%20Plugins%20%2d%20TxToIT&item_number=icons%2dfor%2dplugins&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted
 Requires at least: 4.4
 Requires PHP: 5.4
-Tested up to: 4.9
-Stable tag: 1.0.6
+Tested up to: 5.4
+Stable tag: 1.0.7
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -65,6 +65,9 @@ You can use the filter **'ifp_plugin_icon_url'**. See its documentation below
 
 == Changelog ==
 
+= 1.0.7 - 01/06/2020 =
+* Tested up to: 5.4
+
 = 1.0.6 - 21/03/2018 =
 * Improve travis setup
 
@@ -88,5 +91,5 @@ You can use the filter **'ifp_plugin_icon_url'**. See its documentation below
 
 == Upgrade Notice ==
 
-= 1.0.4 =
-* Change autoloader
+= 1.0.7 =
+* Tested up to: 5.4
